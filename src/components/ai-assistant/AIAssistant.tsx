@@ -6,14 +6,14 @@ const AIAssistant = () => {
   return (
     <section className="py-10 md:py-14">
       {/* Background Wave Video - Full Width, Cropped */}
-      <div className="w-full overflow-hidden flex items-center justify-center" style={{ maxHeight: '40vh' }}>
+      <div className="w-full flex items-center justify-center" style={{ height: '40vh' }}>
         <video
           src={bgWaveVideo}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-auto mix-blend-screen scale-y-[1.4] origin-center"
+          className="w-full h-auto mix-blend-screen"
         />
       </div>
 
