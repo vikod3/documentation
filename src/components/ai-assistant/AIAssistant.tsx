@@ -1,15 +1,37 @@
+import { useEffect, useRef } from "react";
+import Hls from "hls.js";
 import ChatBox from "./ChatBox";
-import bgWave from "@/assets/bg-wave.png";
 import WaveText from "@/components/ui/wave-text";
 
+const VIDEO_URL = "https://customer-cbeadsgr09pnsezs.cloudflarestream.com/964cb3eddff1a67e3772aac9a7aceea2/manifest/video.m3u8";
+
 const AIAssistant = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(VIDEO_URL);
+      hls.attachMedia(video);
+      return () => hls.destroy();
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = VIDEO_URL;
+    }
+  }, []);
+
   return (
     <section className="py-10 md:py-14">
-      {/* Background Wave Image - Full Width */}
+      {/* Background Video - Full Width */}
       <div className="w-full">
-        <img
-          src={bgWave}
-          alt=""
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-auto mix-blend-screen"
         />
       </div>
