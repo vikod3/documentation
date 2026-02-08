@@ -82,19 +82,6 @@ const Hero = () => {
         style={{ zIndex: 0 }}
       />
 
-      {/* Dark overlay for readability */}
-      <div 
-        className="absolute inset-0 bg-background/70"
-        style={{ zIndex: 1 }}
-      />
-
-      {/* Gradient overlay */}
-      <img 
-        src={heroGradient}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        style={{ zIndex: 1 }}
-      />
 
       {/* Bottom fade gradient */}
       <div 
