@@ -12,7 +12,7 @@ const shortcuts = [
 ];
 
 const VIDEO_SRC =
-  "https://customer-cbeadsgr09pnsezs.cloudflarestream.com/74cb72d57c6a6d6d7807693d02e6707b/manifest/video.m3u8";
+  "https://customer-cbeadsgr09pnsezs.cloudflarestream.com/964cb3eddff1a67e3772aac9a7aceea2/manifest/video.m3u8";
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
