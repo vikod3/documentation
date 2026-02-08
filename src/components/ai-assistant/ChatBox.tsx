@@ -102,9 +102,16 @@ async function streamChat({
   onDone();
 }
 
+const suggestionPills = [
+  "Hello",
+  "Do you have an integration with Zapier?",
+];
+
 const ChatBox = () => {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [isLoading, setIsLoading] = useState(false);
+
+  const hasUserMessages = messages.some((m) => m.role === "user");
 
   const handleSend = async (content: string) => {
     const userMessage: Message = { role: "user", content };
@@ -150,10 +157,28 @@ const ChatBox = () => {
         {messages.map((message, index) => (
           <ChatMessage key={index} role={message.role} content={message.content} />
         ))}
+        
+        {/* Suggestion pills - only show before user sends first message */}
+        {!hasUserMessages && !isLoading && (
+          <div className="flex flex-col items-end gap-2 mt-4">
+            {suggestionPills.map((suggestion) => (
+              <button
+                key={suggestion}
+                onClick={() => handleSend(suggestion)}
+                className="px-4 py-2.5 bg-secondary hover:bg-secondary/80 rounded-xl transition-colors"
+              >
+                <span className="text-xs font-medium text-muted-foreground">
+                  {suggestion}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+        
         {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
           <div className="text-left">
             <span className="text-sm text-muted-foreground animate-pulse">
-              Thinking...
+              Searching for answers...
             </span>
           </div>
         )}
