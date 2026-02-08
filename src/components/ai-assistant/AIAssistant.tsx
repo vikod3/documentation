@@ -1,15 +1,18 @@
 import ChatBox from "./ChatBox";
-import bgWave from "@/assets/bg-wave.png";
+import bgWaveVideo from "@/assets/bg-wave-video.mp4";
 import WaveText from "@/components/ui/wave-text";
 
 const AIAssistant = () => {
   return (
     <section className="py-10 md:py-14">
-      {/* Background Wave Image - Full Width */}
+      {/* Background Wave Video - Full Width */}
       <div className="w-full">
-        <img
-          src={bgWave}
-          alt=""
+        <video
+          src={bgWaveVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-auto mix-blend-screen"
         />
       </div>
