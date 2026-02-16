@@ -12,7 +12,7 @@ const shortcuts = [
 ];
 
 const VIDEO_SRC =
-  "https://customer-cbeadsgr09pnsezs.cloudflarestream.com/964cb3eddff1a67e3772aac9a7aceea2/manifest/video.m3u8";
+  "https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8";
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -78,7 +78,7 @@ const Hero = () => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover grayscale"
+        className="absolute inset-0 w-full h-full object-cover saturate-0"
         style={{ zIndex: 0 }}
       />
 
